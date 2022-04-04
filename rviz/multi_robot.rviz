@@ -12,6 +12,7 @@ Panels:
   - Class: rviz/Tool Properties
     Expanded:
       - /2D Nav Goal1
+      - /Publish Point1
     Name: Tool Properties
     Splitter Ratio: 0.5886790156364441
   - Class: rviz/Views
@@ -309,12 +310,12 @@ Visualization Manager:
       Class: rviz/Map
       Color Scheme: costmap
       Draw Behind: false
-      Enabled: true
+      Enabled: false
       Name: "Robot 1: Local Costmap"
       Topic: /robot_1/move_base_node/local_costmap/costmap
       Unreliable: false
       Use Timestamp: false
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -397,6 +398,38 @@ Visualization Manager:
       Topic: /robot_5/move_base_node/global_costmap/footprint
       Unreliable: false
       Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /robosar_task_generator/task_visualisation
+      Name: MarkerArray
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 252; 175; 62
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Queue Size: 10
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic: /robot_2/move_base_node/GlobalPlanner/plan
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -419,13 +452,13 @@ Visualization Manager:
     - Class: rviz/SetGoal
       Topic: /robot_0/move_base_simple/goal
     - Class: rviz/PublishPoint
-      Single click: true
+      Single click: false
       Topic: /clicked_point
   Value: true
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 64.72699737548828
+      Distance: 61.97086715698242
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -433,9 +466,9 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 15.923404693603516
-        Y: 16.189294815063477
-        Z: -30.178112030029297
+        X: 2.91341495513916
+        Y: -1.308788776397705
+        Z: -30.195598602294922
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
@@ -461,5 +494,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1386
-  X: 303
-  Y: 114
+  X: 302
+  Y: 27

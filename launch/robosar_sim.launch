@@ -2,9 +2,9 @@
   <master auto="start"/>
   <param name="/use_sim_time" value="true"/>
 
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find robosar_sim_bringup)/worlds/stage_config/maps/willow_full.yaml" respawn="false" />
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find robosar_sim_bringup)/worlds/scott_hall_pr4/scott_hall_PR4.yaml" respawn="false" />
   
-  <node pkg="stage_ros_add_pose_and_crash" type="stageros" name="stageros" args="$(find robosar_sim_bringup)/worlds/vicon_map/robosar.world" respawn="false" >
+  <node pkg="stage_ros_add_pose_and_crash" type="stageros" name="stageros" args="$(find robosar_sim_bringup)/worlds/scott_hall_pr4/pr4.world" respawn="false" >
     <param name="base_watchdog_timeout" value="0.2"/>
   </node>
 
