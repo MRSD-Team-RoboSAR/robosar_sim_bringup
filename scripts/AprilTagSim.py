@@ -18,6 +18,7 @@ class AprilTagSim:
 
     def __init__(self):
         rospy.init_node("generate_april_tags_node")
+        self.map = rospy.get_param("~map", "default")
         self.num_april_tags = 12
         self.listener = tf.TransformListener()
         self.distance_threshold = 1.5
@@ -49,15 +50,28 @@ class AprilTagSim:
 
     def generate_random_poses(self):
         self.map_msg, self.map_data, self.scale, self.origin, _ = self.get_map_info()
-        self.april_tag_poses = [[4,17.6], [3.7,8.75], [5.75,5.13], [7.14,11.4], [10.2,9.5], 
+        if(self.map == "tepper"):
+            self.april_tag_poses = [[4,17.6], [3.7,8.75], [5.75,5.13], [7.14,11.4], [10.2,9.5],
             [14.7,8.9], [13.1,17.6], [15.8,17.4], [6.45,18.5], [16.2,12.3], [10.9,6.3], [9.2,18.5]]
-        # i = 0
-        # while (i < self.num_april_tags):
-        #     x = np.random.randint(self.origin[0], self.map_msg.info.width)
-        #     y = np.random.randint(self.origin[1], self.map_msg.info.height)
-        #     if self.map_data[y, x] == 0:
-        #         self.april_tag_poses.append([x*self.scale, y*self.scale])
-        #         i += 1
+        elif(self.map == "test1"):
+            self.april_tag_poses = [[1.3,9.0], [2.0,4.0], [7.5,3.0], [7.0,10.0], [12.4,3.9],
+            [16.5,10.0], [17.0,1.0], [23.0,10.0], [25.5,10.0], [26.5,5.3], [10.9,6.3], [19.6,5.37]]
+        elif(self.map == "test2"):
+            #TODO
+            self.april_tag_poses = [[0,0], [0,1]]
+        elif(self.map == "test3"):
+            self.april_tag_poses = [[1.0,16.0], [1.0,12.0], [4.0,5.0], [12.6,2.9], [19.4,6.41],
+            [15.0,4.72], [14.2,11.2], [11.7,16.4], [14.2,13.3], [8.58,16.6], [9.04,10.9], [5.86,7.0]]
+        else:
+            print("Default")
+            self.april_tag_poses = []
+            i = 0
+            while (i < self.num_april_tags):
+                x = np.random.randint(self.origin[0], self.map_msg.info.width)
+                y = np.random.randint(self.origin[1], self.map_msg.info.height)
+                if self.map_data[y, x] == 0:
+                    self.april_tag_poses.append([x*self.scale, y*self.scale])
+                    i += 1
         print("The random generated poses are: ", self.april_tag_poses)
 
     def publish_ground_truth_victims(self, tag_id, pose):

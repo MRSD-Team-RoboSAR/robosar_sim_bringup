@@ -6,7 +6,9 @@
     <remap from="/map" to="/sim_map"/>
   </node>
   
-  <node pkg="robosar_sim_bringup" type="AprilTagSim.py" name="generate_april_tags_node" output="screen" />
+  <node pkg="robosar_sim_bringup" type="AprilTagSim.py" name="generate_april_tags_node" output="screen">
+    <param name="map" value="test3"/>
+  </node>
   <group ns="robosar_agent_bringup_node">
     <node pkg="stage_ros_add_pose_and_crash" type="stageros" name="stageros" args="$(find robosar_sim_bringup)/worlds/stage_config/worlds/test3.world" output="screen" respawn="false" >
       <param name="base_watchdog_timeout" value="0.2"/>
