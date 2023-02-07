@@ -63,7 +63,7 @@ class AprilTagSim:
             #TODO
             self.april_tag_poses = [[0,0], [0,1]]
         elif(self.map == "test3"):
-            self.april_tag_poses = [[1.0,16.0], [1.0,12.0], [2.0,7.0], [12.6,2.9], [18.4,6.41],
+            self.april_tag_poses = [[1.0,16.0], [1.0,12.0], [2.0,7.0], [11.0,2.9], [18.4,6.41],
             [13.7,9.0], [12.2,11.2], [11.7,16.4], [14.2,13.3], [8.58,16.6], [9.04,10.9], [5.86,7.0]]
         else:
             print("Default")
@@ -144,7 +144,6 @@ class AprilTagSim:
         m.header.frame_id = "map"
         m.pose.position.x = pose[0]
         m.pose.position.y = pose[1]
-        m.ns = agent_name
         m.id = tag_id
         m.pose.orientation.x = 0
         m.pose.orientation.y = 0
